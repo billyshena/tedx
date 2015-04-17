@@ -4,7 +4,6 @@
     $form = get_post(2);
 
 $content = apply_filters('the_content', $form->post_content);
-echo $content;
 ?>
 
 <!doctype html>
@@ -16,6 +15,7 @@ echo $content;
     <title>TEDx</title>
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
+    <?php wp_head(); ?>
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/style.css">
 
     <script src="<?php echo get_template_directory_uri(); ?>/js/vendor/modernizr.js"></script>
@@ -45,127 +45,15 @@ echo $content;
       <p>© 2015 TEDx Education</p>
     </footer>
 
+
+    <!-- Modal here -->
     <div class="popup-wrapper" id="popup-speakers">
-      <div class="basic-cta">
-        <a href="#popup-speakers" class="icon-mic cbox-html active"><p><span>Devenez</span> speakers</p></a>
-        <a href="#popup-partners" class="icon-light-up cbox-html"><p><span>Devenez</span> partenaire</p></a>
-      </div>
-      <p class="pop-text">Vous avez une idée ou un projet à partager ?<br>Alors candidatez pour peut-être venir en parler sur la scène de TEDx Education !<br>Vous avez jusqu’au 30 juin 2015 pour soumettre votre candidature au comité de programmation.
-      </p>
-      <form>
-        <div class="bg-b">
-          <div class="cols-2 clearfix">
-            <div>
-              <label for="">Nom<span>*</span></label>
-              <input type="text" name="name">
-            </div>
-            <div>
-              <label for="">Prénom<span>*</span></label>
-              <input type="text" name="name">
-            </div>
-          </div>
-          <div class="cols-2 clearfix">
-            <div>
-              <label for="">Société<span>*</span></label>
-              <input type="text" name="name">
-            </div>
-            <div>
-              <label for="">Fonction<span>*</span></label>
-              <input type="text" name="name">
-            </div>
-          </div>
-          <div class="cols-2 clearfix">
-            <div>
-              <label for="">Date de Naissance<span>*</span></label>
-              <input type="text" name="name">
-            </div>
-            <div>
-              <label for="">Sexe<span>*</span></label>
-              <input type="text" name="name">
-            </div>
-          </div>
-          <div class="cols-2 clearfix">
-            <div>
-              <label for="">Email<span>*</span></label>
-              <input type="email" name="name">
-            </div>
-            <div>
-              <label for="">Téléphone<span>*</span></label>
-              <input type="text" name="name">
-            </div>
-          </div>
-        </div>
-        <div>
-          <div class="clearfix">
-            <div>
-              <label for="">Adresse complète<span>*</span></label>
-              <input type="text" name="name">
-            </div>
-          </div>
-          <div class="cols-2 clearfix">
-            <div>
-              <label for="">Site Internet<span>*</span></label>
-              <input type="text" name="name">
-            </div>
-            <div>
-              <label for="">Compte Twitter<span>*</span></label>
-              <input type="text" name="name">
-            </div>
-          </div>
-          <div class="clearfix">
-            <div>
-              <label for="">Autre<span>*</span></label>
-              <input type="text" name="name">
-            </div>
-          </div>
-        </div>
-        <div class="bg-b clearfix">
-          <div class="clearfix full-w">
-            <div>
-              <label for="">Domaine d'activité</label>
-              <input type="text" name="name">
-            </div>
-          </div>
-          <div class="clearfix full-w">
-            <div>
-              <label for="">Biographie (en quelques lignes, les faits importants que vous souhaitez nous communiquer)</label>
-              <input type="text" name="name">
-            </div>
-          </div>
-          <div class="clearfix full-w">
-            <div>
-              <label for="">Publications & références</label>
-              <input type="text" name="name">
-            </div>
-          </div>
-          <div class="clearfix full-w">
-            <div>
-              <label for="">Sujet sur lequel vous souhaitez vous exprimer ?span>*</span></label>
-              <input type="text" name="name">
-            </div>
-          </div>
-          <div class="clearfix full-w">
-            <div>
-              <label for="">Lien vers une intervention vidéo (lien YouTube recommandé) ou audio<span>*</span></label>
-              <input type="text" name="name">
-            </div>
-          </div>
-          <div class="clearfix full-w">
-            <div>
-              <label for="">Intitulé de votre talk<span>*</span></label>
-              <input type="text" name="name">
-            </div>
-          </div>
-          <div class="clearfix full-w">
-            <div>
-              <label for="">Qu'est-ce qui d'après-vous rend votre talk singulier?</label>
-              <input type="text" name="name">
-            </div>
-          </div>
-          <input type="submit" value="valider">
-        </div>
-      </form>
+        <div class="basic-cta"> <a href="#popup-speakers" class="icon-mic cbox-html active cboxElement"><p><span>Devenez</span> speakers</p></a> <a href="#popup-partners" class="icon-light-up cbox-html cboxElement"><p><span>Devenez</span> partenaire</p></a> </div>
+        <p class="pop-text">Vous avez une idée ou un projet à partager ?<br>Alors candidatez pour peut-être venir en parler sur la scène de TEDx Education !<br>Vous avez jusqu’au 30 juin 2015 pour soumettre votre candidature au comité de programmation. </p>
+        <?php echo $content; ?>
     </div>
+    <!-- /Modal here -->
+
     <div class="popup-wrapper" id="popup-partners">
       <div class="basic-cta">
         <a href="#popup-speakers" class="icon-mic cbox-html"><p><span>Devenez</span> speakers</p></a>
@@ -184,6 +72,9 @@ echo $content;
     <script src="<?php echo get_template_directory_uri(); ?>/js/vendor.js"></script>
 
     <script src="<?php echo get_template_directory_uri(); ?>/js/main.js"></script>
+
+
+    <?php wp_footer(); ?>
 </body>
 </html>
 
