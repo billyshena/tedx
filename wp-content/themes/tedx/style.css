@@ -812,6 +812,7 @@ footer p {
     color: #4d4d4d;
     padding: 0 15px;
     font-weight: 300;
+    margin-top:-15px;
     font-size: 0.875rem; }
 .popup-container .wrapper form > div > div.cols-2 > div {
     float: left;
