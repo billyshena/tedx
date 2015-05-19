@@ -1,5 +1,6 @@
 (function($) {
 
+
 	if (typeof _wpcf7 == 'undefined' || _wpcf7 === null)
 		_wpcf7 = {};
 
@@ -13,13 +14,13 @@
 	$.fn.wpcf7InitForm = function() {
 		this.ajaxForm({
 			beforeSubmit: function(arr, $form, options) {
-				$form.wpcf7ClearResponseOutput();
+                $form.wpcf7ClearResponseOutput();
 				$form.find('[aria-invalid]').attr('aria-invalid', 'false');
 				$form.find('img.ajax-loader').css({ visibility: 'visible' });
 				return true;
 			},
 			beforeSerialize: function($form, options) {
-				$form.find('[placeholder].placeheld').each(function(i, n) {
+                $form.find('[placeholder].placeheld').each(function(i, n) {
 					$(n).val('');
 				});
 				return true;
@@ -41,6 +42,7 @@
 		this.find('.wpcf7-submit').wpcf7AjaxLoader();
 
 		this.find('.wpcf7-acceptance').click(function() {
+            console.log('YES');
 			$(this).closest('form').wpcf7ToggleSubmit();
 		});
 
