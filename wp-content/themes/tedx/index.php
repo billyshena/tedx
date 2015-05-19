@@ -1,5 +1,8 @@
 <?php
 
+
+
+/* TWITTER API CALL */
 require_once('TwitterAPIExchange.php');
 
 
@@ -14,11 +17,27 @@ $url = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
 $getfield = '?username=scoledgefr';
 $requestMethod = 'GET';
 $twitter = new TwitterAPIExchange($settings);
-echo $twitter->setGetfield($getfield)
+/*echo $twitter->setGetfield($getfield)
     ->buildOauth($url, $requestMethod)
-    ->performRequest();
+    ->performRequest();*/
 
 
+
+
+/** INSTAGRAM API CALL */
+
+function fetchData($url){
+  $ch = curl_init();
+  curl_setopt($ch, CURLOPT_URL, $url);
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+  curl_setopt($ch, CURLOPT_TIMEOUT, 20);
+  $result = curl_exec($ch);
+  curl_close($ch);
+  return $result;
+}
+
+$result = fetchData("https://api.instagram.com/v1/users/self/feed?access_token=2122502468.1fb234f.af1670cd239445f9bbd8757360edd837");
+$result = json_decode($result);
 ?>
 
 <h1>Hello world</h1>
